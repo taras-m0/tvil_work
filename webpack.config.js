@@ -53,11 +53,11 @@ module.exports = {
           app.get('/api/get_hotels', function(req, res) {
             setTimeout(function () {
                 res.json([
-                    {id: 1, name: "hotel 1"}
-                    , {id: 2, name: "hotel 2"}
-                    , {id: 3, name: "hotel 3"}
+                    {id: 1, name: "hotel 1", price: 2 }
+                    , {id: 2, name: "hotel 2", price: 5 }
+                    , {id: 3, name: "hotel 3", price: 3}
                 ]);
-            }, 1000);
+            }, 5000);
           });
       }
   },

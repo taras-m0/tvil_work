@@ -26,10 +26,22 @@ const store = new Vuex.Store({
             if (window.localStorage) {
                 localStorage.setItem('hotels', JSON.stringify(hotels));
             }
+        },
+
+        selectHotel: ( state, hotelId ) => {
+            state.hotels.map( hotel => {
+                hotel.selected = ( hotel.id == hotelId );
+            })
+        }
+    },
+    actions: {
+        selectHotel: ( { commit }, id ) => {
+            commit( 'selectHotel', id );
         }
     },
     getters: {
-        hotels: ( state ) => ( state.hotels )
+        hotels: ( state ) => ( state.hotels ),
+        hotelById: (state) => (id) => (state.hotels.find( hotel => hotel.id == id ))
     }
 });
 
